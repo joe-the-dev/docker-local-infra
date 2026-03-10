@@ -1,0 +1,18 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-docdb
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - mongodb-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+volumes:
+  mongodb-data:
+    driver: local

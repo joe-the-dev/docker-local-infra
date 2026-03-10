@@ -1,0 +1,62 @@
+# ──────────────────────────────────────────
+# LocalStack – runtime volumes & state
+# ──────────────────────────────────────────
+localstack/volume/cache/
+localstack/volume/lib/
+localstack/volume/logs/
+localstack/volume/state/
+localstack/volume/tmp/
+
+# Keep the volume directory itself tracked
+!localstack/volume/.gitkeep
+
+# LocalStack TLS / machine secrets
+localstack/volume/cache/machine.json
+localstack/volume/cache/*.pem
+localstack/volume/cache/*.pem.crt
+localstack/volume/cache/*.pem.key
+
+# ──────────────────────────────────────────
+# Google Cloud – emulator data & mock credentials
+# ──────────────────────────────────────────
+google/data/
+# mock-credentials.json is a fake file for local dev, but keep it out of git
+# to avoid confusion with real credential files
+# Uncomment the line below if you want to ignore it:
+# google/mock-credentials.json
+
+# ──────────────────────────────────────────
+# MongoDB – dump archives & runtime data
+# ──────────────────────────────────────────
+mongodb/dump.archive
+mongodb/mongo-data/
+
+# ──────────────────────────────────────────
+# Docker named-volume bind-mount leftovers
+# ──────────────────────────────────────────
+**/data/
+**/*.archive
+
+# ──────────────────────────────────────────
+# OS / editor artefacts
+# ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# JetBrains IDE
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# ──────────────────────────────────────────
+# Environment / secrets
+# ──────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
