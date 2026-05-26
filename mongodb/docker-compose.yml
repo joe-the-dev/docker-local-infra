@@ -3,7 +3,8 @@ services:
     image: mongo:latest
     container_name: mongodb-docdb
     restart: unless-stopped
-    network_mode: host
+    ports:
+      - "27017:27017"
     volumes:
       - mongodb-data:/data/db
     healthcheck:
